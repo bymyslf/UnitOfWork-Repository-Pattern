@@ -6,7 +6,7 @@ namespace UnitOfWork
 {
     public class UnitOfWork : DbContext, IUnitOfWork
     {
-        protected KeyedByTypeCollection<object> repositoryCollection;
+        protected readonly KeyedByTypeCollection<object> repositoryCollection;
             
         public UnitOfWork()
             : this("DefaultConnection")

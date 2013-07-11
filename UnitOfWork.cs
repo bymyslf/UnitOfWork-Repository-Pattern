@@ -2,11 +2,11 @@
 using System.Data.Entity;
 using System.Collections.Generic;
 
-namespace UnitOfWork
+namespace MedFinderWebApplication.DataAccess
 {
     public class UnitOfWork : DbContext, IUnitOfWork
     {
-        protected KeyedByTypeCollection<object> repositoriesCollection;
+        protected KeyedByTypeCollection<object> repositoryCollection;
             
         public UnitOfWork()
             : this("DefaultConnection")
@@ -14,17 +14,20 @@ namespace UnitOfWork
 
         public UnitOfWork(string connectionString)
             : base(connectionString)
-        { }
+        {
+            this.repositoryCollection = new KeyedByTypeCollection<object>();
+        }
 
         public IRepository<TEntity> RepositoryFor<TEntity>()
             where TEntity : class
         {
-            if (!repositoriesCollection.Contains(typeof(IRepository<TEntity>))) 
+            Type repositoryType = typeof(Repository<TEntity>);
+            if (!repositoryCollection.Contains(repositoryType))
             {
-                repositoriesCollection.Add(new Repository<TEntity>(this));
+                repositoryCollection.Add(new Repository<TEntity>(this));
             }
 
-            return repositoriesCollection[typeof(IRepository<TEntity>)] as IRepository<TEntity>;
+            return repositoryCollection[repositoryType] as Repository<TEntity>;
         }
 
         public void Commit()

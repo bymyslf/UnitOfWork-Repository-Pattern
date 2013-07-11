@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace MedFinderWebApplication.DataAccess
+namespace UnitOfWork
 {
     public interface IUnitOfWork
     {

@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace MedFinderWebApplication.DataAccess
+namespace UnitOfWork
 {
     public interface IRepository<TEntity> : IDisposable
         where TEntity : class

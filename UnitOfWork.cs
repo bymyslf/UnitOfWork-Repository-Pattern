@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Collections.Generic;
 
-namespace MedFinderWebApplication.DataAccess
+namespace UnitOfWork
 {
     public class UnitOfWork : DbContext, IUnitOfWork
     {

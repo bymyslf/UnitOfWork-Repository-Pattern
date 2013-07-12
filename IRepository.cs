@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace UnitOfWork
+namespace UnitOfWorkRepository
 {
     public interface IRepository<TEntity> : IDisposable
         where TEntity : class

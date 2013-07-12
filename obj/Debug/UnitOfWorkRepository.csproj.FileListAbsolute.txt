@@ -1,0 +1,1 @@
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\obj\Debug\UnitOfWorkRepository.csprojResolveAssemblyReference.cache

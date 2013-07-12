@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
-namespace UnitOfWork
+namespace UnitOfWorkRepository
 {
     public class Repository<TEntity> : IRepository<TEntity>
         where TEntity : class

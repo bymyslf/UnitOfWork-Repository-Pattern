@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace UnitOfWork
+namespace UnitOfWorkRepository
 {
     public interface IUnitOfWork
     {

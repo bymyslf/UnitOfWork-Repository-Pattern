@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Data.Entity;
-using System.Collections.Generic;
 
-namespace UnitOfWork
+namespace UnitOfWorkRepository
 {
-    public class UnitOfWork : DbContext, IUnitOfWork
+    public class UnitOfWork : UnitOfWorkBase
     {
-        protected readonly KeyedByTypeCollection<object> repositoryCollection;
-            
         public UnitOfWork()
-            : this("DefaultConnection")
+            : base()
         { }
 
         public UnitOfWork(string connectionString)
             : base(connectionString)
-        {
-            this.repositoryCollection = new KeyedByTypeCollection<object>();
-        }
+        { }
 
-        public IRepository<TEntity> RepositoryFor<TEntity>()
-            where TEntity : class
+        public override IRepository<TEntity> RepositoryFor<TEntity>()
         {
             Type repositoryType = typeof(Repository<TEntity>);
             if (!repositoryCollection.Contains(repositoryType))
@@ -28,31 +21,6 @@ namespace UnitOfWork
             }
 
             return repositoryCollection[repositoryType] as Repository<TEntity>;
-        }
-
-        public void Commit()
-        {
-            this.SaveChanges();
-        }
-
-        private bool disposed = false;
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    this.Dispose();
-                }
-            }
-
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

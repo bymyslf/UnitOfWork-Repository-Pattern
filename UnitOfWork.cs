@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 
 namespace UnitOfWorkRepository
 {
@@ -8,8 +9,8 @@ namespace UnitOfWorkRepository
             : base()
         { }
 
-        public UnitOfWork(string connectionString)
-            : base(connectionString)
+        public UnitOfWork(DbContext context)
+            : base(context)
         { }
 
         public override IRepository<TEntity> RepositoryFor<TEntity>()
@@ -17,7 +18,7 @@ namespace UnitOfWorkRepository
             Type repositoryType = typeof(Repository<TEntity>);
             if (!repositoryCollection.Contains(repositoryType))
             {
-                repositoryCollection.Add(new Repository<TEntity>(this));
+                repositoryCollection.Add(new Repository<TEntity>(this.context));
             }
 
             return repositoryCollection[repositoryType] as Repository<TEntity>;

@@ -4,17 +4,18 @@ using System.Collections.Generic;
 
 namespace UnitOfWorkRepository
 {
-    public abstract class UnitOfWorkBase : DbContext, IUnitOfWork
+    public abstract class UnitOfWorkBase : IUnitOfWork
     {
+        protected DbContext context;
         protected readonly KeyedByTypeCollection<object> repositoryCollection;
 
-        protected UnitOfWorkBase()
-            : this("DefaultConnection")
+        public UnitOfWorkBase()
+            : this(new DbContext("DefaultConnection"))
         { }
 
-        protected UnitOfWorkBase(string connectionString)
-            : base(connectionString)
+        public UnitOfWorkBase(DbContext context)
         {
+            this.context = context;
             this.repositoryCollection = new KeyedByTypeCollection<object>();
         }
 
@@ -22,7 +23,7 @@ namespace UnitOfWorkRepository
 
         public void Commit()
         {
-            this.SaveChanges();
+            this.context.SaveChanges();
         }
 
         private bool disposed = false;

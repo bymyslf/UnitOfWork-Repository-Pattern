@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 namespace UnitOfWorkRepository
 {
     public class Repository<TEntity> : IRepository<TEntity>
-        where TEntity : class
+       where TEntity : class
     {
         protected DbContext context;
         protected DbSet<TEntity> dbSet;
@@ -20,12 +20,12 @@ namespace UnitOfWorkRepository
             this.dbSet = context.Set<TEntity>();
         }
 
-        public DbSet<TEntity> Items 
-        { 
+        public DbSet<TEntity> Items
+        {
             get { return dbSet; }
         }
 
-        public virtual IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, 
+        public virtual IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
         {
@@ -61,7 +61,7 @@ namespace UnitOfWorkRepository
 
         public virtual void Insert(TEntity entityToInsert)
         {
-            if (entityToInsert == null) 
+            if (entityToInsert == null)
             {
                 throw new ArgumentNullException();
             }

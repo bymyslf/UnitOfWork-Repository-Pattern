@@ -11,8 +11,8 @@ namespace UnitOfWorkRepository
     public class Repository<TEntity> : IRepository<TEntity>
        where TEntity : class
     {
-        protected DbContext context;
-        protected DbSet<TEntity> dbSet;
+        protected readonly DbContext context;
+        protected readonly DbSet<TEntity> dbSet;
 
         public Repository(DbContext context)
         {
@@ -20,7 +20,7 @@ namespace UnitOfWorkRepository
             this.dbSet = context.Set<TEntity>();
         }
 
-        public DbSet<TEntity> Items
+        public IDbSet<TEntity> Items
         {
             get { return dbSet; }
         }

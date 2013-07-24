@@ -6,7 +6,7 @@ namespace UnitOfWorkRepository
 {
     public abstract class UnitOfWorkBase : IUnitOfWork
     {
-        protected DbContext context;
+        protected readonly DbContext context;
         protected readonly KeyedByTypeCollection<object> repositoryCollection;
 
         public UnitOfWorkBase()

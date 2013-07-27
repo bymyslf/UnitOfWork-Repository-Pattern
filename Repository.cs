@@ -20,7 +20,7 @@ namespace UnitOfWorkRepository
             this.dbSet = context.Set<TEntity>();
         }
 
-        public IDbSet<TEntity> Items
+        public IQueryable<TEntity> Items
         {
             get { return dbSet; }
         }

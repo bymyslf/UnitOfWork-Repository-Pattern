@@ -1,1 +1,8 @@
 C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\obj\Debug\UnitOfWorkRepository.csprojResolveAssemblyReference.cache
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\bin\Debug\UnitOfWorkRepository.dll.config
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\bin\Debug\UnitOfWorkRepository.dll
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\bin\Debug\UnitOfWorkRepository.pdb
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\bin\Debug\EntityFramework.dll
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\bin\Debug\EntityFramework.xml
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\obj\Debug\UnitOfWorkRepository.dll
+C:\Users\Luís\Documents\GitHub\UnitOfWork-Repository-Pattern\obj\Debug\UnitOfWorkRepository.pdb

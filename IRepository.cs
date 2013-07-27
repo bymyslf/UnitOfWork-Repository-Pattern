@@ -10,7 +10,7 @@ namespace UnitOfWorkRepository
     public interface IRepository<TEntity> : IDisposable
         where TEntity : class
     {
-        IDbSet<TEntity> Items { get; }
+        IQueryable<TEntity> Items { get; }
         IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");

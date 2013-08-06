@@ -14,6 +14,7 @@ namespace UnitOfWorkRepository
         IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
+        IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters)
         TEntity Get(Expression<Func<TEntity, bool>> filter);
         TEntity GetByID(int id);
         void Insert(TEntity item);

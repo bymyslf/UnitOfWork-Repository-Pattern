@@ -49,6 +49,11 @@ namespace UnitOfWorkRepository
             return query.ToList();
         }
 
+        public virtual IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters)
+        {
+            return dbSet.SqlQuery(query, parameters).ToList();
+        }
+
         public virtual TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             return dbSet.FirstOrDefault(filter);
